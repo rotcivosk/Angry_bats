@@ -11,20 +11,20 @@ public class Monster : MonoBehaviour
 
     bool _hasDied;
 
-    // Variáveis para movimentação
+    // Variï¿½veis para movimentaï¿½ï¿½o
     [SerializeField] float speed = 2f; // Velocidade do movimento
-    private Vector2 direction; // Direção do movimento (pode ser ajustada no Inspector)
-    [SerializeField] float distance = 5f; // Distância máxima para o movimento
+    private Vector2 direction; // Direï¿½ï¿½o do movimento (pode ser ajustada no Inspector)
+    [SerializeField] float distance = 5f; // Distï¿½ncia mï¿½xima para o movimento
     [SerializeField] float angle = 0f;
     private float elapsedTime = 0f;
     [SerializeField] float moveTime = 2f;
 
-    private Vector2 _startPosition; // Posição inicial do monstro
-    private bool movingForward = true; // Indica se o monstro está indo ou voltando
+    private Vector2 _startPosition; // Posiï¿½ï¿½o inicial do monstro
+    private bool movingForward = true; // Indica se o monstro estï¿½ indo ou voltando
 
     void Start()
     {
-        // Converte o ângulo em radianos e calcula a direção
+        // Converte o ï¿½ngulo em radianos e calcula a direï¿½ï¿½o
         float radians = angle * Mathf.Deg2Rad;
         direction = new Vector2(Mathf.Cos(radians), Mathf.Sin(radians));
     }
@@ -35,7 +35,7 @@ public class Monster : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
 
-            // Muda de direção após o tempo de movimento definido
+            // Muda de direï¿½ï¿½o apï¿½s o tempo de movimento definido
             if (elapsedTime >= moveTime)
             {
                 movingForward = !movingForward;
@@ -48,7 +48,7 @@ public class Monster : MonoBehaviour
 
     void MoveMonster()
     {
-        // Move o monstro na direção determinada ou na direção oposta após o tempo
+        // Move o monstro na direï¿½ï¿½o determinada ou na direï¿½ï¿½o oposta apï¿½s o tempo
         Vector2 moveDir = movingForward ? direction : -direction;
         transform.Translate(moveDir * speed * Time.deltaTime);
     }
